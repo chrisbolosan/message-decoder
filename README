@@ -1,0 +1,16 @@
+# Message Decoder
+
+This project is a message decoder implemented in Python. It reads a specially formatted text file, where each line contains a number and a word. The numbers are not in order, but when sorted, they represent the order of words in a secret message.
+
+The `decode` function opens the text file, reads its content line by line, and splits each line into a number and a word. It then sorts these pairs based on the number.
+
+The function then iterates through the sorted list, but not in a straightforward manner. Instead, it uses a special pattern to select which words to include in the final message. It starts with the first word, then skips one word, then includes the next word, then skips two words, then includes the next word, and so on. This pattern is implemented using a `while` loop and two variables, `count` and `i`, which are both initially set to 1. After each iteration, `count` is incremented by 1, and `i` is incremented by `count`.
+
+Finally, the selected words are joined into a single string with spaces in between, and this string is returned as the decoded message.
+
+## Usage
+
+```python
+decoded_message = decode("./coding_qual_input.txt")
+print(decoded_message)
+```
